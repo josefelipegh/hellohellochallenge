@@ -2,6 +2,7 @@ import { ThemeProvider, createGlobalStyle } from "styled-components";
 
 // Components
 import Responsive from "./components/responsive/Responsive.jsx";
+import ContactUs from "./pages/contactUs/ContactUs.jsx";
 
 // Theming
 import colors from './theming/colors.js';
@@ -18,7 +19,7 @@ function App() {
       <GlobalStyle/>
       <ThemeProvider theme={colors}>
         <Responsive>
-          <section className="container">medio</section>
+          <ContactUs/>
         </Responsive>
       </ThemeProvider>
     </>

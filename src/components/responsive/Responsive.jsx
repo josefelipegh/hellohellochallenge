@@ -9,6 +9,7 @@ const Responsive = styled.div`
     justify-items: center;
     .container {
         grid-column: 1;
+        width: 100%;
     }
 
     ${device.tablet`
@@ -24,6 +25,7 @@ const Responsive = styled.div`
         grid-template-rows: 1fr;
         .container {
             grid-column: 2;
+            width: 100%;
         }
     `}
 

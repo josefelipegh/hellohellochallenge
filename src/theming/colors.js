@@ -4,7 +4,8 @@ const colors = {
     secundaryColor  : '#106EB0',
     tertiaryColor   : '#252220',
     fortyColor      : '#5D5750',
-    fiftyColor      : '#89837F'
+    fiftyColor      : '#89837F',
+    sixtyColor      : '#fff',
 }
 
 export default colors;
