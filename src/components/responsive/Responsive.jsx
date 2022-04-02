@@ -4,19 +4,30 @@ import device from '../../responsive/breakpoints';
 
 const Responsive = styled.div`
     display: grid;
-    grid-template-columns:repeat(1,1fr);
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr;
     justify-items: center;
+    .container {
+        grid-column: 1;
+    }
 
     ${device.tablet`
-        grid-template-columns:repeat(2,1fr);
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr;
+        .container {
+            grid-column: 1;
+        }
     `}
 
     ${device.laptop`
-        grid-template-columns:repeat(4,1fr);
+        grid-template-columns: 1fr 860px 1fr;
+        grid-template-rows: 1fr;
+        .container {
+            grid-column: 2;
+        }
     `}
 
     ${device.desktop`
-        grid-template-columns:repeat(6,1fr);
     `}
 `
 

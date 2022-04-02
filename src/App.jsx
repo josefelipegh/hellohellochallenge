@@ -18,6 +18,7 @@ function App() {
       <GlobalStyle/>
       <ThemeProvider theme={colors}>
         <Responsive>
+          <section className="container">medio</section>
         </Responsive>
       </ThemeProvider>
     </>
