@@ -1,6 +1,26 @@
+import { ThemeProvider, createGlobalStyle } from "styled-components";
+
+// Components
+import Responsive from "./components/responsive/Responsive.jsx";
+
+// Theming
+import colors from './theming/colors.js';
+
+const GlobalStyle = createGlobalStyle`
+  body {
+    background-color: ${colors.bgColor};
+  }
+`
+
 function App() {
   return (
-    <h1>++hellohello challenge</h1>
+    <>
+      <GlobalStyle/>
+      <ThemeProvider theme={colors}>
+        <Responsive>
+        </Responsive>
+      </ThemeProvider>
+    </>
   );
 }
 
