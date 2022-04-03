@@ -13,6 +13,7 @@ const Section = styled.section`
     margin-right: 100px;
     width: 100%;
     height: 100%;
+    padding: 0 1rem;
 `
 
 const ButtonStepper = styled(Button)`
@@ -28,7 +29,6 @@ const ButtonStepper = styled(Button)`
 const Title = styled.h2`
     font-size: 28px;
     font-weight: 700;
-    padding: 0 1rem;
     margin-bottom: 1.5rem;
 `
 

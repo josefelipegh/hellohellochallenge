@@ -7,7 +7,7 @@ const CardAticle = styled.article`
     position: relative;
     width: 100%;
     max-width: 370px;
-    background-color: ${({theme}) =>  theme.sixtyColor};
+    background-color: ${({theme}) =>  theme.sixthColor};
     box-shadow: 0px 8px 16px rgba(86, 80, 76, 0.04), 
                 0px 2px 16px rgba(86, 80, 76, 0.04), 
                 0px 1px 4px rgba(86, 80, 76, 0.04);
@@ -42,7 +42,7 @@ const Icon = styled.span`
     height: 65px;
     top: 80%;
     left: 5%;
-    background-color: ${({theme}) =>  theme.sixtyColor};
+    background-color: ${({theme}) =>  theme.sixthColor};
     border-radius: 100%;
     box-shadow: 0px 8px 16px rgba(86, 80, 76, 0.04), 
                 0px 2px 16px rgba(86, 80, 76, 0.04), 
@@ -86,7 +86,7 @@ const List = styled.ul`
         & p {
             font-size: .8rem;
             font-weight: 100;
-            color: ${({theme}) => theme.fiftyColor};
+            color: ${({theme}) => theme.fifthColor};
             margin: .8rem 0;
         }
     }
