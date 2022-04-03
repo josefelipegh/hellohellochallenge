@@ -5,6 +5,7 @@ import styled from 'styled-components';
 import Radio from '../radio/Radio';
 import Form from '../form/Form';
 import React from 'react';
+import Result from '../result/Result';
 
 
 const Section = styled.section`
@@ -56,6 +57,7 @@ const Stepper = ({options, handledStep1, handledStep2}) => {
                                                     fields={fields} 
                                                     options={options}
                                                     />} />
+                <Route path='/result' element={<Result/>} />
             </Routes>
         </Section>
     )

@@ -43,7 +43,6 @@ const ContactUs = () => {
             if(response && response.data && !response.data.error) {
                 // Navegamos a login
                 timer = setTimeout(() => {
-                    // setTitle('Gracias por completar nuestro formulario.');
                     navigate('/result');
                 },1000);
                 return () => clearTimeout(timer);
@@ -68,7 +67,7 @@ const ContactUs = () => {
             }
         }
         fetchData();
-    }, [options]);
+    }, []);
 
     return (
         <>
