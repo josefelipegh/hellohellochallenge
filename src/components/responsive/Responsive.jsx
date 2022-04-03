@@ -24,7 +24,7 @@ const Responsive = styled.div`
         }
 
         .stepper {
-            margin-right: 100px;
+            margin-right: calc(100px - 1rem);
         }
     `}
 
@@ -37,7 +37,7 @@ const Responsive = styled.div`
         }
 
         .stepper {
-            margin-right: 100px;
+            margin-right: calc(100px - 1rem);
         }
     `}
 

@@ -67,7 +67,7 @@ const ButtonStepper = styled(Button)`
         text-align: center;
         width: max-content;
         padding: 0;
-        margin: 60px 0 0 auto;
+        margin: calc(60px - 1rem) 0 0 auto;
         z-index: ${({disabled})=> disabled ?  '-1' : '0' };
 `
 

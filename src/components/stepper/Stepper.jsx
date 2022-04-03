@@ -14,7 +14,7 @@ const Section = styled.section`
     align-items: flex-start;
     flex-direction: column;
     flex-wrap: wrap;
-    margin-right: 100px;
+    margin-right: calc(100px - 1rem);
     width: 100%;
     max-width: 390px;
     height: auto;

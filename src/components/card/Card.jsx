@@ -86,7 +86,7 @@ const List = styled.ul`
 
         & p {
             font-size: .8rem;
-            font-weight: 100;
+            font-weight: 300;
             color: ${({theme}) => theme.fifthColor};
             margin: .8rem 0;
         }

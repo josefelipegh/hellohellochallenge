@@ -30,7 +30,6 @@ const ContactUs = () => {
 
     let navigate = useNavigate();
 
-    let timer;
 
     const handledSelectedOption = opt => setOption(opt);
 
@@ -39,16 +38,9 @@ const ContactUs = () => {
         try {
             const response = await _dataService.post(email, option);
             console.log(response);
-
             // Respuesta Ok
-            if(response && response.data && !response.data.error) {
-                // Navegamos a login
-                timer = setTimeout(() => {
-                    navigate('/result');
-                },1000);
-                return () => clearTimeout(timer);
-            }
-            // else console.log(response.data.,)
+            // Navegamos a result
+            if(response && response.data && !response.data.error) navigate('/result');
         }catch(err) {
             console.error(err);
         }
