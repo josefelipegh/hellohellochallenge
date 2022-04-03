@@ -37,7 +37,6 @@ const ContactUs = () => {
         setEmail(email);
         try {
             const response = await _dataService.post(email, option);
-            console.log(response);
             // Respuesta Ok
             // Navegamos a result
             if(response && response.data && !response.data.error) navigate('/result');
