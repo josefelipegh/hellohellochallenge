@@ -5,7 +5,7 @@ const Button = styled.button`
     color: ${(theme) => theme.sixthColor};
     margin-bottom: 1rem;
     outline: none;
-    padding: .7rem .9rem;
+    padding: .8rem .9rem;
     background-color: ${({ theme }) => theme.primary};
     transition: color, background-color .5s;
     border-radius: .3rem;

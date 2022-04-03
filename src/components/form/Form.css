@@ -44,7 +44,7 @@
 }
 
 .form__input:invalid {
-    outline: 2px solid red;
+    outline: 2px solid #b42426;
 }
 
 .form__opt {

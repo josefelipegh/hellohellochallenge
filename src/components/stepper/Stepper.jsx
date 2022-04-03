@@ -40,7 +40,7 @@ const Stepper = ({options, handledStep1, handledStep2}) => {
         {
             type: 'submit',
             name: 'submit',
-            label: 'Enviar',
+            label: 'enviar',
         }
     ];
 
