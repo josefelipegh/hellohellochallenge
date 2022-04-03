@@ -15,7 +15,7 @@ const Img = styled.img`
 `
 
 const ButtonResult = styled(Button)`
-    max-width: 150px;
+    max-width: 120px;
     
     & .stepper__link{
         text-decoration: none;

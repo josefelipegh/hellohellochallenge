@@ -53,7 +53,7 @@
 
 .form__button {
     width: 100%;
-    max-width: 150px;
+    max-width: 120px;
     font-size: 1rem;
     font-weight: 300;
     outline: none;
@@ -110,6 +110,7 @@
     display: inline-block;
     width: 100%;
     color: #b42426;
+    font-size: 11px;
 }
 
 /* XL */
