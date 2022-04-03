@@ -1,4 +1,6 @@
-import styled from 'styled-components';
+import React, { useState } from 'react';
+
+import styled, { css } from 'styled-components';
 
 const Card = styled.div`
     background-color: ${({theme})=> theme.sixtyColor};
@@ -6,8 +8,12 @@ const Card = styled.div`
                 0px 2px 16px rgba(86, 80, 76, 0.04), 
                 0px 1px 4px rgba(86, 80, 76, 0.04);
     width: 100%;
-    border-radius: .5rem;
+    border-radius: .2rem;
     margin-bottom: 1rem;
+
+    ${({active}) => active && css`
+        outline: 2px solid ${({ theme }) => theme.seventhColor};
+    `}
 `
 
 const Input = styled.input`
@@ -40,12 +46,19 @@ const Paragraph = styled.p`
 
 const Radio = ({options}) => {
 
+    const [isActive, setActive] = useState(null);
+
+    const handledChange = (e) => {
+        console.log(e.target.value);
+        setActive(e.target.value);
+    }
+
     const buildRadioButton = () => {
         return options.map(opt => {
             return (
-            <Card key={opt.value}>
-                <Input type="radio" name="a" id="a" value={opt.value} />
-                <Label htmlFor="a">
+            <Card key={opt.value} active={ isActive && isActive === opt.value }>
+                <Input type="radio" name='option' id={opt.value} value={opt.value} onChange={handledChange} />
+                <Label htmlFor={opt.value}>
                     <Option>
                         <Img src={opt.image} alt={opt.value} />
                     </Option>
