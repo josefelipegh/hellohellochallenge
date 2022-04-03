@@ -32,12 +32,12 @@ const Title = styled.h2`
     margin-bottom: 1.5rem;
 `
 
-const Stepper = () => {
+const Stepper = ({options}) => {
     return (
         <Section>
             <Title>Para comenzar seleccioná una de las siguientes opciones.</Title>
             {/* TODO: Form con opciones como checkbox */}
-            <Radio/>
+            <Radio options={options}/>
             <ButtonStepper danger>siguiente</ButtonStepper>
         </Section>
     )

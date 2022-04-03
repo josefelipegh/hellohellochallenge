@@ -38,9 +38,9 @@ const Figure = styled.figure`
 const Icon = styled.span`
     position: absolute;
     display: flex;
-    width: 45px;
-    height: 45px;
-    top: 85%;
+    width: 65px;
+    height: 65px;
+    top: 80%;
     left: 5%;
     background-color: ${({theme}) =>  theme.sixtyColor};
     border-radius: 100%;
@@ -50,8 +50,8 @@ const Icon = styled.span`
 `
 
 const Img = styled.img`
-    width: 25px;
-    height: 25px;
+    width: 35px;
+    height: 35px;
     margin: auto;
 `
 

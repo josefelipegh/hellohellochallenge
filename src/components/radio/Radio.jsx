@@ -6,8 +6,8 @@ const Card = styled.div`
                 0px 2px 16px rgba(86, 80, 76, 0.04), 
                 0px 1px 4px rgba(86, 80, 76, 0.04);
     width: 100%;
-    padding: 2rem;
     border-radius: .5rem;
+    margin-bottom: 1rem;
 `
 
 const Input = styled.input`
@@ -18,15 +18,15 @@ const Label = styled.label`
     display: flex;
     justify-content: space-around;
     align-items: center;
+    padding: 2rem;
     width: 100%;
+    cursor: pointer;
 `
 
 const Option = styled.span`
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: ${({theme})=> theme.sixtyColor};
-    background-color: ${({theme})=> theme.secundaryColor};
+`
+
+const Img = styled.img`
     width: 50px;
     height: 35px;
     border-radius: .4rem;
@@ -41,19 +41,21 @@ const Paragraph = styled.p`
 const Radio = ({options}) => {
 
     const buildRadioButton = () => {
-        return (
-        <Card>
-            <Input type="radio" name="a" id="a" />
-            <Label htmlFor="a">
-                <Option>
-                    A
-                </Option>
-                <Paragraph>Lorem ipsum</Paragraph>
-                <i>
-                    <img src="/assets/svg/icon-chevron-right.svg" alt="chevronRight" />
-                </i>
-            </Label>
-        </Card>);
+        return options.map(opt => {
+            return (
+            <Card key={opt.value}>
+                <Input type="radio" name="a" id="a" value={opt.value} />
+                <Label htmlFor="a">
+                    <Option>
+                        <Img src={opt.image} alt={opt.value} />
+                    </Option>
+                    <Paragraph>{opt.label}</Paragraph>
+                    <i>
+                        <img src="/assets/svg/icon-chevron-right.svg" alt="chevronRight" />
+                    </i>
+                </Label>
+            </Card>);
+        })
     }
 
     return (
