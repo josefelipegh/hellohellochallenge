@@ -12,11 +12,19 @@ const Responsive = styled.div`
         width: 100%;
     }
 
+    .stepper {
+            margin-right: 0;
+    }
+
     ${device.tablet`
         grid-template-columns: 1fr;
         grid-template-rows: 1fr;
         .container {
             grid-column: 1;
+        }
+
+        .stepper {
+            margin-right: 100px;
         }
     `}
 
@@ -26,6 +34,10 @@ const Responsive = styled.div`
         .container {
             grid-column: 2;
             width: 100%;
+        }
+
+        .stepper {
+            margin-right: 100px;
         }
     `}
 

@@ -13,10 +13,13 @@ const Section = styled.section`
     justify-content: flex-start;
     align-items: flex-start;
     flex-direction: column;
+    flex-wrap: wrap;
     margin-right: 100px;
     width: 100%;
-    height: 100%;
+    max-width: 390px;
+    height: auto;
     padding: 0 1rem;
+    margin-bottom: 1rem;
 `
 
 const Stepper = ({options, handledStep1, handledStep2}) => {
@@ -45,7 +48,7 @@ const Stepper = ({options, handledStep1, handledStep2}) => {
     ];
 
     return (
-        <Section>
+        <Section className='stepper'>
             <Routes>
                 <Route path="/" element={<Radio 
                                                 handleChange={handledStep1}

@@ -15,6 +15,7 @@ const ContactUsContainer = styled.section`
     display: flex;
     justify-content: center;
     align-items: flex-start;
+    flex-wrap: wrap;
     margin-top: 100px;
     max-width: 860px;
 `
