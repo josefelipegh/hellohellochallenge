@@ -70,6 +70,7 @@ const Title = styled.h3`
 const Description = styled.p`
     margin: 1rem 0;
     font-weight: 400;
+    padding-right: 1rem;
 `
 
 const List = styled.ul`

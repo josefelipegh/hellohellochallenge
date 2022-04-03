@@ -16,12 +16,6 @@ const Section = styled.section`
     width: 100%;
     height: 100%;
     padding: 0 1rem;
-
-    & .stepper__link {
-        display: flex;
-        width: 100%;
-        text-decoration: none;
-    }
 `
 
 const Title = styled.h2`
@@ -46,8 +40,6 @@ const Stepper = ({options}) => {
             type: 'email',
             name: 'email',
             label: 'Correo electrónico',
-            maxLength: 45,
-            minLength: 0,
             handleChange,
             required: 'Por favor, ingresá un correo electrónico válido.'
         },

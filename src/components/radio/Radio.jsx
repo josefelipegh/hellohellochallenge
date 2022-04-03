@@ -8,6 +8,16 @@ import Button from '../button/Button';
 const CardWrapper = styled.div`
     width: 100%;
     margin: 40px 0 1rem 0;
+    display: flex;
+    flex-direction: column;
+    & .stepper__link {
+        display: flex;
+        width: 100%;
+        height: 100%;
+        text-decoration: none;
+        color: ${({theme})=> theme.sixthColor};
+        padding: 1rem 3rem;
+    }
 `
 
 const Card = styled.div`
@@ -50,14 +60,16 @@ const Paragraph = styled.p`
     flex-grow: 1;
     margin-left: 1rem;
     font-weight: 600;
+    padding: 0 1rem;
 `
 
 const ButtonStepper = styled(Button)`
+        position: relative;
         text-align: center;
         width: max-content;
-        padding-left: 3rem;
-        padding-right: 3rem;
+        padding: 0;
         margin: 60px 0 0 auto;
+        z-index: ${({disabled})=> disabled ?  '-1' : '0' };
 `
 
 const Radio = ({options}) => {
@@ -89,9 +101,11 @@ const Radio = ({options}) => {
     return (
         <CardWrapper>
             {buildRadioButton()}
-            <Link className='stepper__link' to={'/step2'}>
-                <ButtonStepper danger>siguiente</ButtonStepper>
-            </Link>
+                <ButtonStepper disabled={!isActive} danger>
+                    <Link className='stepper__link' to={'/step2'}>
+                        siguiente
+                    </Link>
+                </ButtonStepper>
         </CardWrapper>
     )
 }
