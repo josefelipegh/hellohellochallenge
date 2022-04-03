@@ -4,7 +4,6 @@ const Button = styled.button`
     border: none;
     color: #fff;
     margin-bottom: 1rem;
-    margin-right: 1rem;
     outline: none;
     padding: .7rem .9rem;
     background-color: ${({ theme }) => theme.primary};

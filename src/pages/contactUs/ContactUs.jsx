@@ -27,39 +27,31 @@ const ContactUs = () => {
 
     const [email, setEmail] = useState(null);
 
-    const handledSelectedOption = (opt) => setOption(opt);
-
     let navigate = useNavigate();
 
     let timer;
 
+    const handledSelectedOption = opt => setOption(opt);
+
     const handledEmail = async ({email}) => {
-
         setEmail(email);
-
         try {
             const response = await _dataService.post(email, option);
             console.log(response);
 
             // Respuesta Ok
             if(response && response.data && !response.data.error) {
-                // showToast.current('success', 'Éxito', 'Se ha registrado el usuario exitosamente, se envio un email a su correo para verificación', 5000);
                 // Navegamos a login
                 timer = setTimeout(() => {
+                    // setTitle('Gracias por completar nuestro formulario.');
                     navigate('/result');
-                },2000);
-
+                },1000);
                 return () => clearTimeout(timer);
             }
-            // else showToast.current('error', 'Error Message', 'No se pudo crear el usuario', 3000);
+            // else console.log(response.data.,)
         }catch(err) {
-            // const {response} = err;
-            // if(response.data && response.data.err && response.data.data)
-            //     showToast.current('error', 'Error Message', response.data.data, 3000);
+            console.error(err);
         }
-
-        
-
     }
 
     useEffect(() => {
@@ -81,7 +73,7 @@ const ContactUs = () => {
     return (
         <>
             <ContactUsContainer className='container'>
-                <Stepper 
+                <Stepper
                         handledStep1={handledSelectedOption} 
                         handledStep2={handledEmail}
                         options={options}

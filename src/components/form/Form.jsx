@@ -2,11 +2,19 @@
 import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import { Link } from "react-router-dom";
+import styled from 'styled-components';
 
+// Components
 import Button from "../button/Button";
 
 // CSS
 import './Form.css';
+
+const Title = styled.h2`
+    font-size: 28px;
+    font-weight: 700;
+    margin: 0 0 40px 0;
+`
 
 const Form = ({title, handleSubmitForm, fields, defaultValues}) => {
 
@@ -63,12 +71,15 @@ const Form = ({title, handleSubmitForm, fields, defaultValues}) => {
     }
 
     return (
-        <form className="form" onSubmit={handleSubmit(handleSubmitForm)}>
-            <h2 className="form__title">{title}</h2>
-            {
-                fields.map(field => buildFields(field))
-            }
-        </form>
+        <>
+            <Title>Para terminar completá el siguiente formulario.</Title>
+            <form className="form" onSubmit={handleSubmit(handleSubmitForm)}>
+                <h2 className="form__title">{title}</h2>
+                {
+                    fields.map(field => buildFields(field))
+                }
+            </form>
+        </>
     );
 }
 

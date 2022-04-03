@@ -7,7 +7,6 @@ import Button from '../button/Button';
 
 const CardWrapper = styled.div`
     width: 100%;
-    margin: 40px 0 1rem 0;
     display: flex;
     flex-direction: column;
     & .stepper__link {
@@ -72,14 +71,18 @@ const ButtonStepper = styled(Button)`
         z-index: ${({disabled})=> disabled ?  '-1' : '0' };
 `
 
+const Title = styled.h2`
+    font-size: 28px;
+    font-weight: 700;
+    margin: 0 0 40px 0;
+`
+
 const Radio = ({options, handleChange}) => {
 
     const [isActive, setActive] = useState(null);
 
     const handledChange = (e) => {
         setActive(e.target.value);
-        // Event emitter
-        handleChange(e.target.value);
     }
 
     const buildRadioButton = () => {
@@ -102,9 +105,13 @@ const Radio = ({options, handleChange}) => {
 
     return (
         <CardWrapper>
+            <Title>Para comenzar seleccioná una de las siguientes opciones.</Title>
             {buildRadioButton()}
                 <ButtonStepper disabled={!isActive} danger>
-                    <Link className='stepper__link' to={'/step2'}>
+                    <Link 
+                            onClick={() => handleChange(isActive)}
+                            className='stepper__link' 
+                            to={'/step2'}>
                         siguiente
                     </Link>
                 </ButtonStepper>

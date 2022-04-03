@@ -18,11 +18,6 @@ const Section = styled.section`
     padding: 0 1rem;
 `
 
-const Title = styled.h2`
-    font-size: 28px;
-    font-weight: 700;
-`
-
 const Stepper = ({options, handledStep1, handledStep2}) => {
 
     const defaultValues = {
@@ -50,7 +45,6 @@ const Stepper = ({options, handledStep1, handledStep2}) => {
 
     return (
         <Section>
-            <Title>Para comenzar seleccioná una de las siguientes opciones.</Title>
             <Routes>
                 <Route path="/" element={<Radio 
                                                 handleChange={handledStep1}
