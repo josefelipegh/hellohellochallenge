@@ -6,7 +6,8 @@ const Card = styled.div`
                 0px 2px 16px rgba(86, 80, 76, 0.04), 
                 0px 1px 4px rgba(86, 80, 76, 0.04);
     width: 100%;
-    padding: 1rem;
+    padding: 2rem;
+    border-radius: .5rem;
 `
 
 const Input = styled.input`
@@ -34,6 +35,7 @@ const Option = styled.span`
 const Paragraph = styled.p`
     flex-grow: 1;
     margin-left: 1rem;
+    font-weight: 600;
 `
 
 const Radio = ({options}) => {

@@ -44,6 +44,9 @@ const Icon = styled.span`
     left: 5%;
     background-color: ${({theme}) =>  theme.sixtyColor};
     border-radius: 100%;
+    box-shadow: 0px 8px 16px rgba(86, 80, 76, 0.04), 
+                0px 2px 16px rgba(86, 80, 76, 0.04), 
+                0px 1px 4px rgba(86, 80, 76, 0.04);
 `
 
 const Img = styled.img`
@@ -65,7 +68,7 @@ const Title = styled.h3`
 `
 
 const Description = styled.p`
-    margin-top: 0.5rem;
+    margin: 1rem 0;
     font-weight: 400;
 `
 
@@ -77,13 +80,14 @@ const List = styled.ul`
         list-style: none;
 
         & i {
-            margin: .5rem;
+            margin: .5rem .5rem .5rem 0;
         }
 
         & p {
             font-size: .8rem;
             font-weight: 100;
             color: ${({theme}) => theme.fiftyColor};
+            margin: .8rem 0;
         }
     }
 `
