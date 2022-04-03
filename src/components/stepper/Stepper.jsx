@@ -23,7 +23,7 @@ const Title = styled.h2`
     font-weight: 700;
 `
 
-const Stepper = ({options}) => {
+const Stepper = ({options, handledStep1, handledStep2}) => {
 
     const defaultValues = {
         email: ''
@@ -31,9 +31,7 @@ const Stepper = ({options}) => {
 
     const defaultValuesError = {...defaultValues};
 
-    const handleChange = () => console.log('change');
-
-    const handleSubmit = (e) => console.log(e);
+    const handleChange = (e) => console.log(e);
 
     const fields = [
         {
@@ -54,9 +52,11 @@ const Stepper = ({options}) => {
         <Section>
             <Title>Para comenzar seleccioná una de las siguientes opciones.</Title>
             <Routes>
-                <Route path="/" element={<Radio options={options}/>} />
+                <Route path="/" element={<Radio 
+                                                handleChange={handledStep1}
+                                                options={options}/>} />
                 <Route path="/step2" element={<Form 
-                                                    handleSubmitForm={handleSubmit}
+                                                    handleSubmitForm={handledStep2}
                                                     defaultValues={defaultValues} 
                                                     defaultValuesError={defaultValuesError} 
                                                     fields={fields} 

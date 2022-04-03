@@ -72,12 +72,14 @@ const ButtonStepper = styled(Button)`
         z-index: ${({disabled})=> disabled ?  '-1' : '0' };
 `
 
-const Radio = ({options}) => {
+const Radio = ({options, handleChange}) => {
 
     const [isActive, setActive] = useState(null);
 
     const handledChange = (e) => {
         setActive(e.target.value);
+        // Event emitter
+        handleChange(e.target.value);
     }
 
     const buildRadioButton = () => {

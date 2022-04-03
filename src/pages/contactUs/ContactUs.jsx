@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import styled from 'styled-components';
 
 // Components
@@ -7,6 +8,7 @@ import Stepper from '../../components/stepper/Stepper';
 
 // Services
 import { OptionsServices as _optionsServices } from "../../services/OptionsService";
+import { DataService as _dataService } from "../../services/DataService";
 
 const ContactUsContainer = styled.section`
     position: relative;
@@ -20,6 +22,45 @@ const ContactUsContainer = styled.section`
 const ContactUs = () => {
 
     const [options, setOptions] = useState([]);
+
+    const [option, setOption] = useState(null);
+
+    const [email, setEmail] = useState(null);
+
+    const handledSelectedOption = (opt) => setOption(opt);
+
+    let navigate = useNavigate();
+
+    let timer;
+
+    const handledEmail = async ({email}) => {
+
+        setEmail(email);
+
+        try {
+            const response = await _dataService.post(email, option);
+            console.log(response);
+
+            // Respuesta Ok
+            if(response && response.data && !response.data.error) {
+                // showToast.current('success', 'Éxito', 'Se ha registrado el usuario exitosamente, se envio un email a su correo para verificación', 5000);
+                // Navegamos a login
+                timer = setTimeout(() => {
+                    navigate('/result');
+                },2000);
+
+                return () => clearTimeout(timer);
+            }
+            // else showToast.current('error', 'Error Message', 'No se pudo crear el usuario', 3000);
+        }catch(err) {
+            // const {response} = err;
+            // if(response.data && response.data.err && response.data.data)
+            //     showToast.current('error', 'Error Message', response.data.data, 3000);
+        }
+
+        
+
+    }
 
     useEffect(() => {
         const fetchData = async () => {
@@ -40,7 +81,11 @@ const ContactUs = () => {
     return (
         <>
             <ContactUsContainer className='container'>
-                <Stepper options={options}/>
+                <Stepper 
+                        handledStep1={handledSelectedOption} 
+                        handledStep2={handledEmail}
+                        options={options}
+                        />
                 <Card/>
             </ContactUsContainer>
         </>
