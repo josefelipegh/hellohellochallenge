@@ -88,7 +88,9 @@ const Radio = ({options, handleChange}) => {
     const buildRadioButton = () => {
         return options.map(opt => {
             return (
-            <Card key={opt.value} active={ isActive && isActive === opt.value }>
+            <Card key={opt.value} 
+                  className='animate__animated animate__fadeIn animate__delay-1s'
+                  active={ isActive && isActive === opt.value }>
                 <Input type="radio" name='option' id={opt.value} value={opt.value} onChange={handledChange} />
                 <Label htmlFor={opt.value}>
                     <Option>

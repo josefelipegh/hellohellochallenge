@@ -95,7 +95,7 @@ const List = styled.ul`
 
 const Card = () => {
     return (
-        <CardAticle>
+        <CardAticle className='animate__animated animate__bounceInRight'>
             <Header>
                 <Figure/>
                 <Icon>

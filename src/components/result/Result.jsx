@@ -26,10 +26,10 @@ const ButtonResult = styled(Button)`
 const Result = () => {
     return (
         <>
-            <i>
+            <i className='animate__animated animate__rotateIn animate__delay-1s'>
                 <Img src="/assets/svg/icon-success.svg" alt="success" />
             </i>
-            <Title>Gracias por completar nuestro formulario.</Title>
+            <Title className='animate__animated animate__bounceInLeft'>Gracias por completar nuestro formulario.</Title>
             <ButtonResult danger className="form__button">
                 <Link 
                         className='stepper__link' 

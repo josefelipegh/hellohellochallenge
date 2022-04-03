@@ -48,7 +48,7 @@ const Stepper = ({options, handledStep1, handledStep2}) => {
     ];
 
     return (
-        <Section className='stepper'>
+        <Section className='stepper animate__animated animate__bounceInLeft'>
             <Routes>
                 <Route path="/" element={<Radio 
                                                 handleChange={handledStep1}

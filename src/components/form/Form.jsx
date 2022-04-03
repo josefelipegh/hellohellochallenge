@@ -29,7 +29,7 @@ const Form = ({title, handleSubmitForm, fields, defaultValues}) => {
          return {
             'email': function isEmail() {
                 return <label key={field.name}
-                        className="form__label"
+                        className="form__label animate__animated animate__fadeIn"
                         htmlFor={field.name}>
                     { field.label && <span className="form__name-input">{field.label}</span>}
                     <input id={field.name}
@@ -72,7 +72,7 @@ const Form = ({title, handleSubmitForm, fields, defaultValues}) => {
 
     return (
         <>
-            <Title>Para terminar completá el siguiente formulario.</Title>
+            <Title className="animate__animated animate__bounceInLeft">Para terminar completá el siguiente formulario.</Title>
             <form className="form" onSubmit={handleSubmit(handleSubmitForm)}>
                 <h2 className="form__title">{title}</h2>
                 {
