@@ -1,5 +1,8 @@
 import styled from 'styled-components';
+
+// Components
 import Card from '../../components/card/Card';
+import Stepper from '../../components/stepper/Stepper';
 
 const ContactUsContainer = styled.section`
     position: relative;
@@ -14,7 +17,7 @@ const ContactUs = () => {
     return (
         <>
             <ContactUsContainer className='container'>
-                <section>stepper</section>
+                <Stepper/>
                 <Card/>
             </ContactUsContainer>
         </>

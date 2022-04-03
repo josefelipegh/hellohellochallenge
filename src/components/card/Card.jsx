@@ -89,8 +89,6 @@ const List = styled.ul`
 `
 
 const Card = () => {
-
-
     return (
         <CardAticle>
             <Header>

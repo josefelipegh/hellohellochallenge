@@ -6,12 +6,13 @@ const Button = styled.button`
     margin-bottom: 1rem;
     margin-right: 1rem;
     outline: none;
-    padding: .5rem .8rem;
+    padding: .7rem .9rem;
     background-color: ${({ theme }) => theme.primary};
     transition: color, background-color .5s;
     border-radius: .3rem;
     cursor: pointer;
     width: 100%;
+    font-weight: 600;
 
     ${({danger, ghost}) => danger && ghost && css`
         background-color: transparent;
