@@ -2,8 +2,6 @@ import axios from 'axios';
 
 const BASE_URL = process.env.URL_API || 'https://api-demo-hh.vercel.app/api/';
 
-console.log(BASE_URL, "BASE_URL")
-
 const api = axios.create({
     baseURL: BASE_URL,
 });

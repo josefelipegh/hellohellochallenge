@@ -1,8 +1,10 @@
+import { Link, Route, Routes } from 'react-router-dom';
 import styled from 'styled-components';
-import Button from '../button/Button';
 
 // Components
 import Radio from '../radio/Radio';
+import Form from '../form/Form';
+import React from 'react';
 
 
 const Section = styled.section`
@@ -14,31 +16,61 @@ const Section = styled.section`
     width: 100%;
     height: 100%;
     padding: 0 1rem;
-`
 
-const ButtonStepper = styled(Button)`
-        text-align: center;
-        margin-top: 60px;
-        width: max-content;
-        padding-left: 3rem;
-        padding-right: 3rem;
-        float: left;
-        margin-left: auto;
+    & .stepper__link {
+        display: flex;
+        width: 100%;
+        text-decoration: none;
+    }
 `
 
 const Title = styled.h2`
     font-size: 28px;
     font-weight: 700;
-    margin-bottom: 1.5rem;
 `
 
 const Stepper = ({options}) => {
+
+    const defaultValues = {
+        email: ''
+    };
+
+    const defaultValuesError = {...defaultValues};
+
+    const handleChange = () => console.log('change');
+
+    const handleSubmit = (e) => console.log(e);
+
+    const fields = [
+        {
+            type: 'email',
+            name: 'email',
+            label: 'Correo electrónico',
+            maxLength: 45,
+            minLength: 0,
+            handleChange,
+            required: 'Por favor, ingresá un correo electrónico válido.'
+        },
+        {
+            type: 'submit',
+            name: 'submit',
+            label: 'Enviar',
+        }
+    ];
+
     return (
         <Section>
             <Title>Para comenzar seleccioná una de las siguientes opciones.</Title>
-            {/* TODO: Form con opciones como checkbox */}
-            <Radio options={options}/>
-            <ButtonStepper danger>siguiente</ButtonStepper>
+            <Routes>
+                <Route path="/" element={<Radio options={options}/>} />
+                <Route path="/step2" element={<Form 
+                                                    handleSubmitForm={handleSubmit}
+                                                    defaultValues={defaultValues} 
+                                                    defaultValuesError={defaultValuesError} 
+                                                    fields={fields} 
+                                                    options={options}
+                                                    />} />
+            </Routes>
         </Section>
     )
 }

@@ -14,6 +14,10 @@ const Button = styled.button`
     width: 100%;
     font-weight: 600;
 
+    &:active {
+        transform: scale(.9);
+    }
+
     ${({danger, ghost}) => danger && ghost && css`
         background-color: transparent;
         color: ${({ theme }) => theme.primaryColor};

@@ -1,6 +1,14 @@
 import React, { useState } from 'react';
-
+import { Link } from 'react-router-dom';
 import styled, { css } from 'styled-components';
+
+// Components
+import Button from '../button/Button';
+
+const CardWrapper = styled.div`
+    width: 100%;
+    margin: 40px 0 1rem 0;
+`
 
 const Card = styled.div`
     background-color: ${({theme})=> theme.sixtyColor};
@@ -24,7 +32,7 @@ const Label = styled.label`
     display: flex;
     justify-content: space-around;
     align-items: center;
-    padding: 2rem;
+    padding: 1.5rem;
     width: 100%;
     cursor: pointer;
 `
@@ -44,12 +52,19 @@ const Paragraph = styled.p`
     font-weight: 600;
 `
 
+const ButtonStepper = styled(Button)`
+        text-align: center;
+        width: max-content;
+        padding-left: 3rem;
+        padding-right: 3rem;
+        margin: 60px 0 0 auto;
+`
+
 const Radio = ({options}) => {
 
     const [isActive, setActive] = useState(null);
 
     const handledChange = (e) => {
-        console.log(e.target.value);
         setActive(e.target.value);
     }
 
@@ -72,9 +87,12 @@ const Radio = ({options}) => {
     }
 
     return (
-        <>
+        <CardWrapper>
             {buildRadioButton()}
-        </>
+            <Link className='stepper__link' to={'/step2'}>
+                <ButtonStepper danger>siguiente</ButtonStepper>
+            </Link>
+        </CardWrapper>
     )
 }
 

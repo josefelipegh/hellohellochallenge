@@ -1,3 +1,4 @@
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import { ThemeProvider, createGlobalStyle } from "styled-components";
 
 // Components
@@ -19,7 +20,11 @@ function App() {
       <GlobalStyle/>
       <ThemeProvider theme={colors}>
         <Responsive>
-          <ContactUs/>
+        <Router>
+          <Routes>
+            <Route path="/*" element={<ContactUs/>}/>
+          </Routes>
+        </Router>
         </Responsive>
       </ThemeProvider>
     </>

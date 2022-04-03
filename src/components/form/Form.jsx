@@ -3,6 +3,8 @@ import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import { Link } from "react-router-dom";
 
+import Button from "../button/Button";
+
 // CSS
 import './Form.css';
 
@@ -23,7 +25,7 @@ const Form = ({title, handleSubmitForm, fields, defaultValues}) => {
                 return <label key={field.name} 
                               className="form__label"
                               htmlFor={field.name}>
-                            <span className="form__name-input">{field.label}</span>
+                            { field.label && <span className="form__name-input">{field.label}</span>}
                             <input id={field.name}
                                     className="form__input" 
                                     type="text" 
@@ -39,7 +41,7 @@ const Form = ({title, handleSubmitForm, fields, defaultValues}) => {
                 return <label key={field.name} 
                               className="form__label"
                               htmlFor={field.name}>
-                            <span className="form__name-input">{field.label}</span>
+                            { field.label && <span className="form__name-input">{field.label}</span>}
                             <textarea id={field.name}
                                     className="form__input" 
                                     maxLength={field.maxLength}
@@ -56,7 +58,7 @@ const Form = ({title, handleSubmitForm, fields, defaultValues}) => {
                 return <label key={field.name} 
                              className="form__label"
                              htmlFor={field.name}>
-                            <span className="form__name-input">{field.label}</span>
+                            { field.label && <span className="form__name-input">{field.label}</span>}
                             <input 
                                     id={field.name}
                                     className="form__input" 
@@ -73,7 +75,7 @@ const Form = ({title, handleSubmitForm, fields, defaultValues}) => {
                 return <label key={field.name} 
                         className="form__label"
                         htmlFor={field.name}>
-                    <span className="form__name-input">{field.label}</span>
+                    { field.label && <span className="form__name-input">{field.label}</span>}
                     <input  id={field.name}
                             className="form__input" 
                             type="date" 
@@ -89,20 +91,26 @@ const Form = ({title, handleSubmitForm, fields, defaultValues}) => {
                 return <label key={field.name}
                         className="form__label"
                         htmlFor={field.name}>
-                    <span className="form__name-input">{field.label}</span>
+                    { field.label && <span className="form__name-input">{field.label}</span>}
                     <input id={field.name}
                             className="form__input" 
                             type="email"
                             pattern={field.pattern}
                             onChange={field.handleChange}
-                            {...register(field.name, {required : field.required})}
+                            {...register(field.name, {
+                                required : field.required, 
+                                pattern: {
+                                    value: /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
+                                    message: field.required
+                                }
+                            })}
                     />
                     <small className="form__error">{errors[field.name]?.message}</small>
                 </label>
             },
             'select': function isSelect() {
                 return <div key={field.name} className="form__label">
-                    <span className="form__name-input">{field.label}</span>
+                    { field.label && <span className="form__name-input">{field.label}</span>}
                     <select id={field.name}
                         className="form__input form__select" 
                         onChange={field.handleChange}
@@ -117,7 +125,7 @@ const Form = ({title, handleSubmitForm, fields, defaultValues}) => {
                 return <label key={field.name} 
                         className="form__label"
                         htmlFor={field.name}>
-                    <span className="form__name-input">{field.label}</span>
+                    { field.label && <span className="form__name-input">{field.label}</span>}
                     <span className="form_view-password">
                         <input id={field.name}
                                 className="form__input" 
@@ -154,11 +162,16 @@ const Form = ({title, handleSubmitForm, fields, defaultValues}) => {
                 </div>
             }, 
             'submit': function isSubmit(){
-                return <input key={field.name}
-                       id={field.name}
-                       className="form__button" 
-                       type="submit"
-                       value={field.label}/>
+                return <Button 
+                                danger
+                                className="form__button" 
+                                id={field.name}
+                                key={field.name}
+                                type="submit"
+                                value={field.label}
+                                >
+                                    {field.label}
+                      </Button>
             }, 
          }[field.type]();
     }
