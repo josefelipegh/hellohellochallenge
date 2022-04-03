@@ -2,7 +2,7 @@ import styled, { css } from 'styled-components';
 
 const Button = styled.button`
     border: none;
-    color: #fff;
+    color: ${(theme) => theme.sixthColor};
     margin-bottom: 1rem;
     outline: none;
     padding: .7rem .9rem;
